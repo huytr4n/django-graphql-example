@@ -10,6 +10,7 @@ flake8 = "*"
 django = "*"
 graphene-django = "*"
 django-environ = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"

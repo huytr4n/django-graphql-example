@@ -24,7 +24,7 @@ subdirectories = [
     x != '__pycache__'
 ]
 for directory in subdirectories:
-    if directory in settings.LOCAL_APPS:
+    if directory in settings.GRAPHQL_APPS:
         try:
             module = importlib.import_module(f'{directory}.mutations')
             if module:

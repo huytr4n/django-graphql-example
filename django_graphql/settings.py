@@ -38,13 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
+    'movies',
+    'posts',
 ]
 
-LOCAL_APPS = [
+GRAPHQL_APPS = [
     'movies',
 ]
-
-INSTALLED_APPS += LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
