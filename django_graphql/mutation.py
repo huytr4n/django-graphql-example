@@ -29,7 +29,7 @@ for directory in subdirectories:
             module = importlib.import_module(f'{directory}.mutations')
             if module:
                 classes = [x for x in getmembers(module, isclass)]
-                mutations = [x[1] for x in classes if 'SMutation' in x[0]]
+                mutations = [x[1] for x in classes if 'Mutation' in x[0]]
                 mutations_base_classes += mutations
         except ModuleNotFoundError:
             pass
@@ -37,7 +37,9 @@ for directory in subdirectories:
 mutations_base_classes = mutations_base_classes[::-1]
 properties = {}
 for base_class in mutations_base_classes:
-    properties.update(base_class.__dict__['_meta'].fields)
+    attr_meta = base_class.__dict__.get('_meta', '')
+    if attr_meta:
+        properties.update(base_class.__dict__['_meta'].fields)
 
 Mutations = type(
     'Mutations',
