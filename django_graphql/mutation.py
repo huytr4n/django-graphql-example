@@ -29,7 +29,7 @@ for directory in subdirectories:
             module = importlib.import_module(f'{directory}.mutations')
             if module:
                 classes = [x for x in getmembers(module, isclass)]
-                mutations = [x[1] for x in classes if 'Mutation' in x[0]]
+                mutations = [x[1] for x in classes if 'AppMutation' in x[0]]
                 mutations_base_classes += mutations
         except ModuleNotFoundError:
             pass

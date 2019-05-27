@@ -1,0 +1,24 @@
+[
+    {
+        "model": "categories.category",
+        "pk": 1,
+        "fields": {
+            "name": "Coffe"
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 2,
+        "fields": {
+            "name": "Water"
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 3,
+        "fields": {
+          "name": "Soda"
+        }
+      }
+  ]
+  

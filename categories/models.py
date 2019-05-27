@@ -8,10 +8,17 @@ class Category(models.Model):
 
     created_at = models.DateTimeField(
         auto_now_add=True,
-        verbose_name="Created at"
+        verbose_name="Created at",
+        blank=True,
+        null=True
     )
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated at")
-    title = models.CharField(max_length=255, verbose_name="Title")
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name="Updated at",
+        blank=True,
+        null=True
+    )
+    name = models.CharField(max_length=255, verbose_name="Title")
 
     class Meta:
         verbose_name = "Category"

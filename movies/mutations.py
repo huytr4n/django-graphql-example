@@ -106,7 +106,7 @@ class UpdateMovie(graphene.Mutation):
         return UpdateMovie(ok=ok, movie=None)
 
 
-class Mutation(graphene.ObjectType):
+class AppMutation(graphene.ObjectType):
     create_actor = CreateActor.Field()
     update_actor = UpdateActor.Field()
     create_movie = CreateMovie.Field()
