@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'graphene_django',
     'movies',
+    'categories',
     'posts',
 ]
 
 GRAPHQL_APPS = [
+    'categories',
     'movies',
 ]
 

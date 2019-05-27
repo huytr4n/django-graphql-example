@@ -1,32 +1,41 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
 
-
-class Category(models.Model):
-    """
-    Model Category.
-    """
-
-    name = models.CharField(("Category's name"), max_length=50)
-    description = models.CharField(("Category's description"), max_length=100)
-
-    class Meta:
-        verbose_name = ("Category")
-        verbose_name_plural = ("Categorys")
+from categories.models import Category
 
 
 class Post(models.Model):
-    """
-    Model Post.
-    """
 
-    content = models.TextField(("Post's content"))
-    time = models.DateTimeField(("Post time"), auto_now=False, auto_now_add=False)
-    url = models.CharField(("Post's URL"), max_length=50)
-    category = models.ForeignKey(Category, verbose_name=("Category ID"), on_delete=models.CASCADE, null=True, blank=True)
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Created at"
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name="Updated at"
+    )
+    is_published = models.BooleanField(
+        default=False,
+        verbose_name="Is published?"
+    )
+    published_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        editable=False,
+        verbose_name="Published at"
+    )
+    category = models.ForeignKey(
+        Category,
+        verbose_name="Category",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+    title = models.CharField(max_length=200, verbose_name="Title")
+    text = models.TextField(verbose_name="Text")
 
     class Meta:
-        verbose_name = ("Post")
-        verbose_name_plural = ("Posts")
+        verbose_name = "Post"
+        verbose_name_plural = "Posts"
+
+    def __str__(self):
+        return self.title
